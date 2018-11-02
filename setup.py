@@ -4,10 +4,10 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="enviro",
-    version="0.0.1",
+    name="wenviro",
+    version="0.0.2",
     author="Gustavo Ghioldi",
-    author_email="gustavo.ghioldir@benefit.com.ar",
+    author_email="gustavoghioldir@gmail.com",
     description="Envio variables helper",
     long_description=long_description,
     long_description_content_type="text/markdown",
