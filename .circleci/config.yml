@@ -19,7 +19,7 @@ jobs:
           name: install dependencies
           command: |
             . ./venv/bin/activate
-            python -m pip install --user --upgrade setuptools wheel
+            python -m pip install --upgrade setuptools wheel
       
       - run:
           name: setup
