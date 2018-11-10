@@ -31,7 +31,7 @@ jobs:
           name: install twine
           command: |
             . ./venv/bin/activate
-            python -m pip install --user --upgrade twine
+            python -m pip install  --upgrade twine
   
       - run:
           name: setup enviroment
