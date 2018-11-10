@@ -10,28 +10,20 @@ jobs:
 
     working_directory: ~/repo
 
-    steps:
-      - checkout
-      - run:
-          name: verify git tag vs. version
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-
       - run:
           name: install dependencies
           command: |
-            python3 -m pip install --user --upgrade setuptools wheel
+            python -m pip install --user --upgrade setuptools wheel
       
       - run:
           name: setup
           command: |
-            python3 setup.py sdist bdist_wheel
+            python setup.py sdist bdist_wheel
 
       - run:
           name: install twine
           command: |
-            python3 -m pip install --user --upgrade twine
+            python -m pip install --user --upgrade twine
   
       - run:
           name: setup enviroment
@@ -39,8 +31,8 @@ jobs:
             echo -e "[pypi]" >> ~/.pypirc
             echo -e "username = $PYPI_USERNAME" >> ~/.pypirc
             echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+      
       - run:
           name: upload
           command: |
-            . venv/bin/activate
             twine upload dist/*
