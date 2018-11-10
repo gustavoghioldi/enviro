@@ -14,30 +14,18 @@ jobs:
       - checkout
 
       - run:
-        name: install virtualenv
-        command: |
-          pip install virtualenv
-      - run:
-          name: create virtualenv
-          command: |
-            python -m virtualenv env
-
-      - run:
           name: install dependencies
           command: |
-            . env/bin/activate
             python -m pip install --user --upgrade setuptools wheel
       
       - run:
           name: setup
           command: |
-            . env/bin/activate
             python setup.py sdist bdist_wheel
 
       - run:
           name: install twine
           command: |
-            . env/bin/activate
             python -m pip install --user --upgrade twine
   
       - run:
@@ -46,8 +34,8 @@ jobs:
             echo -e "[pypi]" >> ~/.pypirc
             echo -e "username = $PYPI_USERNAME" >> ~/.pypirc
             echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+
       - run:
           name: upload
           command: |
-            . env/bin/activate
             twine upload dist/*
