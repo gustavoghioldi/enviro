@@ -14,6 +14,10 @@ jobs:
       - checkout
 
       - run:
+          name: 'Creating Virtualenv'
+          command: virtualenv venv
+      
+      - run:
           name: install dependencies
           command: |
             python -m pip install --user --upgrade setuptools wheel
