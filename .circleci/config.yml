@@ -18,16 +18,19 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            . ./venv/bin/activate
             python -m pip install --user --upgrade setuptools wheel
       
       - run:
           name: setup
           command: |
+            . ./venv/bin/activate
             python setup.py sdist bdist_wheel
 
       - run:
           name: install twine
           command: |
+            . ./venv/bin/activate
             python -m pip install --user --upgrade twine
   
       - run:
@@ -40,4 +43,5 @@ jobs:
       - run:
           name: upload
           command: |
+            . ./venv/bin/activate
             twine upload dist/*
