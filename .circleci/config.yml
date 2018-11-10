@@ -12,6 +12,11 @@ jobs:
 
     steps:
       - checkout
+
+      - run:
+        name: install virtualenv
+        command: |
+          pip install virtualenv
       - run:
           name: create virtualenv
           command: |
